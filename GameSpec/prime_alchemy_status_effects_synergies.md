@@ -5,7 +5,8 @@
 ## 1. Scope and principles
 
 - Implement status mechanics only for **Fire, Water, and Frost** for now. Earth and Lightning deal damage as usual but have no dedicated status effects yet.
-- Use **one shared status/buildup system** for Nova (Q), enchanted ranged attacks (E + RMB), and Signature spells (R). No signature-specific status bonuses or exceptions.
+- **Open dependency:** enemy counters in `prime_alchemy_areas_stages_enemies.md` (Stormhorn Stag, Obsidian Sentinel, Frostbound Warden, Mire Channeler, Prismatic Slime, Corrupted Alchemist, First Prisoner) rely on **stagger, interrupt and destabilize**. Earth's "stagger" identity and Lightning's "interrupt" identity rely on them too. These require a **Poise / Stagger / Crowd-control system**, which is not yet specified. Until it is, those counters have no underlying mechanic.
+- Use **one shared status/buildup system** for Nova (Q), enchanted ranged attacks (E + LMB), and Signature spells (R). No signature-specific status bonuses or exceptions.
 - A Signature's **dominant element** (the element appearing twice) determines its status buildup. For signatures containing three different elements, a primary status element must be assigned individually later; do not automatically apply all three statuses.
 - Ordinary elemental interactions depend on the incoming attack's effective element. Reactions are universal, not unique to individual spells.
 - Status resistance and elemental damage resistance are separate enemy attributes.
@@ -31,7 +32,7 @@
 
 | Existing target condition | Incoming element | Reaction | Behavior |
 |---|---|---|---|
-| Wet | Frost | Flash Freeze | Frost applies **+50% Chill buildup** (not a guaranteed instant Freeze) |
+| Wet | Frost | Deep Chill | Frost applies **+50% Chill buildup** (not a guaranteed instant Freeze) |
 | Wet | Fire | Evaporation | Fire deals **25% less damage** while Wet remains and accelerates drying |
 | Burning | Water | Extinguish | Burning immediately ends; the Water hit applies Water/Wet buildup normally |
 | Frozen | Fire | Thermal Shock | The triggering Fire hit gains **+30% damage**, then Frozen is removed |
@@ -51,10 +52,10 @@
 | Action | Status application |
 |---|---|
 | **Q — Nova** | Uses the selected element or elements according to the normal Nova attack data; applies corresponding Fire/Water/Frost buildup and universal reactions |
-| **E — Enhancement** | Enhances subsequent RMB projectiles; their elemental hits apply corresponding status buildup and universal reactions |
+| **E — Enhancement** | Enhances subsequent LMB projectiles; their elemental hits apply corresponding status buildup and universal reactions |
 | **R — Duo Signature** | Applies buildup for the **dominant element** (two matching slots); no custom status rules per spell |
 | **R — Trio Signature** | Uses **one designated primary status element**, to be defined for each three-different-element recipe |
-| **Unenchanted RMB** | No elemental buildup by default |
+| **Unenchanted LMB** | No elemental buildup by default |
 
 ### Duo Signature examples
 
@@ -64,12 +65,12 @@
 | Water + Water + Fire | Scalding Whirlpool | Wet |
 | Fire + Fire + Lightning | Firestorm | Burn |
 | Lightning + Lightning + Fire | Thunderbolt | No status at present |
-| Water + Water + Frost | Flash Freeze (spell) | Wet |
+| Water + Water + Frost | Flash Freeze | Wet |
 | Frost + Frost + Water | Blizzard | Chill |
 | Earth + Earth + Frost | Glacial Bastion | No status at present |
 | Frost + Frost + Earth | Crystal Cataclysm | Chill |
 
-This rule similarly covers the remaining dual-element signatures: Earth- or Lightning-dominant ones do not apply a status until their respective statuses are designed. **The spell named Flash Freeze is distinct from the universal Wet → Frost reaction of the same name**; renaming one in the future may improve clarity.
+This rule similarly covers the remaining dual-element signatures: Earth- or Lightning-dominant ones do not apply a status until their respective statuses are designed. The universal Wet → Frost reaction is named **Deep Chill** to keep it distinct from the **Flash Freeze** signature spell.
 
 ## 5. Multi-hit attacks and element weighting
 
@@ -95,7 +96,7 @@ These numbers are initial test settings only. An enemy may resist Fire damage wh
 
 **Core systems:** per-target status/buildup state, timers, resistance multipliers, damage-over-time tick scheduler, Chill slow, Freeze immobilization/interrupt, and universal reaction resolution.
 
-**Suggested development sequence:** (1) Burning; (2) Wet and drying; (3) Chill/Freeze and Flash Freeze reaction; (4) Extinguish; (5) Thermal Shock; (6) enemy resistance profiles; (7) tuning persistent and multi-hit spell buildup.
+**Suggested development sequence:** (1) Burning; (2) Wet and drying; (3) Chill/Freeze and Deep Chill reaction; (4) Extinguish; (5) Thermal Shock; (6) enemy resistance profiles; (7) tuning persistent and multi-hit spell buildup.
 
 **Balance values still to finalize:** base buildup per attack type, Burn tick damage, Wet buildup per hit, post-thaw Chill retained, crowd-control immunity period, boss interrupt duration, and primary-status assignments for the four trio signatures.
 
@@ -104,5 +105,5 @@ These numbers are initial test settings only. An enemy may resist Fire damage wh
 - Five base elements: Fire, Water, Earth, Lightning, Frost.
 - Incompatible within a formula: Fire + Frost; Water + Lightning.
 - Three element slots. All signatures are usable immediately when required elements are available; no signature unlock mechanic.
-- Q casts ordinary Nova (**0.5 s cooldown**); E enchants RMB attacks (**0.5 s cooldown**); R casts Signature (shared **10 s duo** / separate shared **30 s trio** cooldowns).
+- Q casts ordinary Nova (**0.5 s cooldown**); E enchants LMB attacks (**0.5 s cooldown**); R casts Signature (shared **10 s duo** / separate shared **30 s trio** cooldowns).
 - Existing boon/rune modifications are governed by the separate boon specification.

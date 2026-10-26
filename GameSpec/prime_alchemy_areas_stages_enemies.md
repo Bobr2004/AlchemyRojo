@@ -34,7 +34,7 @@ After clearing a stage, players choose which stage/reward route to take next. Th
 ## 2. Area I — The Ashen Outpost
 
 **Environment:** Abandoned camp, smoke, palisades, ruined watchtowers, path into dark forest.  
-**Purpose:** Teach mobility, dash, RMB attack, elemental Q nova, E enchantment, and R signature spell.
+**Purpose:** Teach mobility, dash, LMB attack, elemental Q nova, E enchantment, and R signature spell.
 
 | Enemy | Role / behavior |
 |---|---|
@@ -196,7 +196,7 @@ Build representative **large open stage** and **small wave arena** templates in 
 - Stages offer route selection after completion; a route's reward category is visible before choosing it.
 - **Big:** new elemental unlock or skill Rune. **Normal:** +25 max HP, +2 stage-entry regeneration, elemental damage boon, chosen elemental empowerment, or 100 gold. **Minor:** food, 30–50 gold, random elemental empowerment.
 - Initial balancing target: **8 Big reward opportunities from stages/bosses across a full run**, plus optional shop purchases. Distribution: Outpost 1, Wilds 2, Mire 2, Prison 2, Crucible 1. An element unlock should be available by the end of Wilds. These are tuning targets, not hard-coded drop rates.
-- Four traders, one before each area boss except the Outpost boss; initial trader format is 1 Big + 2 Normal + 2 Minor offers.
+- Four traders, one before each area boss except the Outpost boss; solo trader format is **1 Big + 1 Normal + 1 Minor** (3 offers). Party-size stock scaling is defined in `prime_alchemy_coop_rules.md` §4.
 - Selected Demon Lord follows the Grand Alchemist, with one of the five different elemental essences awarded for victory.
 
 See `prime_alchemy_boons.md` for store costs and reward balance.

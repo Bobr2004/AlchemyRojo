@@ -9,7 +9,7 @@
 2. Select up to **three elements** to assemble a formula.
 3. Press **Q** to cast an ordinary elemental nova using the selected formula, regardless of whether it also matches a signature recipe.
 4. Press **R** to cast the matching signature spell, if one exists and its cooldown is ready.
-5. Press **E** to enchant the **RMB ranged attack** using the selected elements. **E never casts signature spells.**
+5. Press **E** to enchant the **LMB ranged attack** using the selected elements. **E never casts signature spells.**
 6. Adapt formulas to enemies, terrain, boons, and cooldown availability.
 
 Signature spells are the centerpiece of spellcraft. There are **20 possible mixed-element signatures** using the current rules.
@@ -53,10 +53,10 @@ Signature spells are the centerpiece of spellcraft. There are **20 possible mixe
 |---|---|
 | Movement | Reposition, kite, navigate arenas |
 | Dash | Evasive movement; varies by Alchemist |
-| RMB | Ranged attack |
+| LMB | Ranged attack |
 | Q | Always cast an ordinary nova using the current formula |
 | R | Cast the matched signature spell, if available and off cooldown |
-| E | Enchant RMB attacks with current elements |
+| E | Enchant LMB attacks with current elements |
 
 ### Cooldown design
 
@@ -66,7 +66,7 @@ Signature spells are the centerpiece of spellcraft. There are **20 possible mixe
 - **Ordinary nova (Q):** Available for **every valid formula**, including formulas matching a signature. **0.5 s cooldown**, currently a minimum anti-spam interval.
 - **Signature (R):** Only casts when the selected three-slot formula matches a signature and its duo/trio cooldown is ready. Otherwise R does not cast; the player can still press Q to use the ordinary nova.
 - Changing formulas cannot bypass the shared duo or trio signature cooldowns.
-- **E enchantment:** **0.5 s activation cooldown**. Applies normal elemental enhancements to RMB for a limited number of attacks and/or time; exact values to playtest.
+- **E enchantment:** **0.5 s activation cooldown**. Applies normal elemental enhancements to LMB for a limited number of attacks and/or time; exact values to playtest.
 
 **Design intent:** **Q is always the reliable nova**, **R is always the signature spell**, and **E is always the ranged enchantment**. A signature-ready formula never overrides Q.
 
@@ -76,8 +76,8 @@ Baseline comparisons are relative to **Apprentice**.
 
 | Alchemist | Starting elements | Stats and movement | Starting duo signatures |
 |---|---|---|---|
-| **Apprentice** | Fire + Lightning | Baseline movement, HP, dash, nova radius and RMB speed | Firestorm; Thunderbolt |
-| **IronClad** | Earth + Frost | **-5% movement**, **-20% dash distance**, **2× HP**, **larger nova radius**, **-10% RMB attack speed** | Glacial Bastion; Crystal Cataclysm |
+| **Apprentice** | Fire + Lightning | Baseline movement, HP, dash, nova radius and LMB speed | Firestorm; Thunderbolt |
+| **IronClad** | Earth + Frost | **-5% movement**, **-20% dash distance**, **2× HP**, **larger nova radius**, **-10% LMB attack speed** | Glacial Bastion; Crystal Cataclysm |
 | **Frog Wizard** | Fire + Water | **+5% movement** relative to Apprentice, **two consecutive dashes**, **-20% HP** | Boiling Geysers; Scalding Whirlpool |
 
 A hero's starting two elements are sufficient for their two respective duo signatures. Unlocking more elements within a run expands available formulas.
@@ -227,7 +227,7 @@ Transforms a large region surrounding the player into a frozen battlefield for *
 #### 20 — Eye of the Tempest
 **Recipe:** Earth + Lightning + Frost  
 **Role:** Mobile storm / sustained pressure  
-Creates a large storm following the player for **7 s**. Orbiting stones and ice shards hit nearby enemies while lightning strikes targets inside. Periodic pulses push enemies outward. RMB remains usable during the storm.  
+Creates a large storm following the player for **7 s**. Orbiting stones and ice shards hit nearby enemies while lightning strikes targets inside. Periodic pulses push enemies outward. LMB remains usable during the storm.  
 **Use:** Aggressive mobile pressure.
 
 ## 7. Ordinary Q novas, R signatures and E enchantments
@@ -248,7 +248,7 @@ Creates a large storm following the player for **7 s**. Orbiting stones and ice 
 
 ### Ranged enchantment (E)
 
-- Applies the selected elements' normal effects to RMB ranged attacks.
+- Applies the selected elements' normal effects to LMB ranged attacks.
 - Has a **0.5 s activation cooldown**. Attack-count and duration limits remain open for playtesting.
 - **Does not trigger a signature spell**, even if the active three-slot recipe is a signature.
 - Enchantment effects should remain mechanically simpler than signature spells.
@@ -263,7 +263,7 @@ Creates a large storm following the player for **7 s**. Orbiting stones and ice 
 
 ## 9. Outstanding combat tuning
 
-- RMB baseline rate/damage, normal Nova base damage and area, E enchant duration/shot count, status strength and stacking.
+- LMB baseline rate/damage, normal Nova base damage and area, E enchant duration/shot count, status strength and stacking.
 - Detailed dash timing, invulnerability behavior and hero-specific numerical baselines.
 - Damage allocation by element for mixed formulas and resistance calculations.
 - Exact cooldown-start rules for E replacement/reapplication and Q interaction with rune follow-up hits.

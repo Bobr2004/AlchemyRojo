@@ -16,7 +16,7 @@ Exactly four rarities: **Common, Rare, Epic, Legendary** (no Uncommon). Where a 
 
 ## 2. Elemental Boons (Normal rewards)
 
-One affinity per base element, affecting that element's share of damage through Q, E/RMB and R.
+One affinity per base element, affecting that element's share of damage through Q, E/LMB and R.
 
 | Affinity | Element | Common | Rare | Epic | Legendary |
 |---|---|---:|---:|---:|---:|
@@ -48,13 +48,13 @@ Nine runes, three each for Q, R and E. Runes affect their named ability only, un
 | Supreme Distillation | — | 22 s | 18 s | 16 s | Replaces shared 30-second trio-signature cooldown |
 | Perfect Resonance | — | — | Duo +35% | Duo +50% | Strengthens duo signatures; interpreted as damage pending confirmation |
 
-### E — Enhancement / enchanted RMB
+### E — Enhancement / enchanted LMB
 
 | Rune | Common | Rare | Epic | Legendary | Effect |
 |---|---|---|---|---|---|
 | Ricochet | — | — | 70% | 100% | Enchanted shot bounces to another enemy at listed damage fraction |
 | Extended Infusion | +30% | +38% | +45% | +50% | Bonus to Enhancement effectiveness; exact affected stat TBD (damage vs duration/charges) |
-| Volatile Ammunition | — | Every 4th hit, 60% AoE damage | Every 3rd, 60% | Every 3rd, 90% | Enchanted RMB hits periodically trigger an elemental area attack |
+| Volatile Ammunition | — | Every 4th hit, 60% AoE damage | Every 3rd, 60% | Every 3rd, 90% | Enchanted LMB hits periodically trigger an elemental area attack |
 
 **Implementation policy proposed:** one copy of each named Rune per player; if offered again, it may replace the previous version with a higher rarity. Duplicate triggered effects should never recursively activate themselves. These policies are not finalized.
 
@@ -116,7 +116,7 @@ Gold rewards are received from stages, not sold by traders. No element already o
 - Each of the five area bosses offers a **Big reward opportunity**, bringing the target to **eight non-shop Big opportunities** per completed run. Area budget: Ashen Outpost 1, Withering Wilds 2, Drowned Mire 2, Obsidian Prison 2, Forgotten Crucible 1.
 - Traders can add roughly 1–2 purchased Big rewards in a gold-rich run. A player starting with two elements may spend up to three Big choices unlocking the remaining three elements. Full five-element access is possible, not mandatory.
 - Guarantee an opportunity for a third element no later than completion of the Withering Wilds; later unlocks may be optional.
-- Four trader stops: before area bosses in Wilds, Mire, Prison and Crucible. Proposed inventory: **1 Big, 2 Normal, 2 Minor**, including at least one healing food offer.
+- Four trader stops: before area bosses in Wilds, Mire, Prison and Crucible. Solo inventory: **1 Big, 1 Normal, 1 Minor**; the Minor slot always offers healing food. Party-size stock scaling is defined in `prime_alchemy_coop_rules.md` §4.
 - Trader reroll price idea: 40 gold first reroll, 80 gold second if enabled; selection re-rolls, not rarity upgrades.
 - Target total gold income ~750 per run before optional special rewards. Fine-tune after playtesting; an example allocation: Outpost 45, Wilds 175, Mire 175, Prison 210, Crucible 145.
 
